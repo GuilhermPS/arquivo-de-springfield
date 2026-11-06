@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title">
+  <title id="title">Imagem indisponível</title>
+  <rect width="600" height="600" fill="#d9d8cd"/>
+  <circle cx="300" cy="250" r="112" fill="#c6c8b8"/>
+  <path d="M88 570c18-124 95-190 212-190s194 66 212 190" fill="#c6c8b8"/>
+  <circle cx="300" cy="250" r="64" fill="#d9d8cd"/>
+  <text x="300" y="540" fill="#68733f" font-family="Arial,sans-serif" font-size="28" text-anchor="middle" letter-spacing="5">SPRINGFIELD</text>
+</svg>
+
