@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111313" />
+    <meta name="description" content="Explore personagens de Os Simpsons com dados consultados em uma API pública." />
+    <title>Arquivo de Springfield — Os Simpsons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#personagens">Pular para os personagens</a>
+
+    <header class="site-header">
+      <div class="header-inner page-shell">
+        <a class="brand" href="#inicio" aria-label="Arquivo de Springfield, início">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-name">ARQUIVO<span> DE SPRINGFIELD</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="#personagens">Personagens</a>
+          <a href="#sobre">O projeto</a>
+          <a class="nav-api" href="https://thesimpsonsapi.com/" target="_blank" rel="noreferrer">API <span aria-hidden="true">↗</span></a>
+        </nav>
+        <span class="header-signal"><i aria-hidden="true"></i> TRANSMISSÃO ABERTA</span>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero page-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> UM ARQUIVO VIVO DE SPRINGFIELD</p>
+          <h1 id="hero-title">Todo mundo<br />tem uma história.<br /><em>Até o vizinho.</em></h1>
+          <p class="hero-description">Entre na cidade que conquistou os anos 90. Explore seus personagens, descubra suas histórias e encontre seu favorito.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#personagens">Explorar personagens <span aria-hidden="true">↓</span></a>
+            <span class="hero-note"><b>1989</b> — a primeira transmissão</span>
+          </div>
+          <div class="hero-stats" aria-label="Dados do projeto">
+            <div><strong id="archive-count">—</strong><span>personagens no arquivo</span></div>
+            <div><strong>20</strong><span>por página consultada</span></div>
+            <div><strong>01</strong><span>API pública</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Ilustração abstrata de uma rosquinha e da cidade de Springfield" role="img">
+          <div class="art-grid" aria-hidden="true"></div>
+          <div class="city-label"><span>SPRINGFIELD, USA</span><b>39°47′N&nbsp; 89°39′W</b></div>
+          <div class="donut-shadow" aria-hidden="true"></div>
+          <div class="donut" aria-hidden="true"><span class="donut-hole"></span><i class="sprinkle sprinkle-one"></i><i class="sprinkle sprinkle-two"></i><i class="sprinkle sprinkle-three"></i><i class="sprinkle sprinkle-four"></i><i class="sprinkle sprinkle-five"></i><i class="sprinkle sprinkle-six"></i><i class="sprinkle sprinkle-seven"></i></div>
+          <div class="art-orbit orbit-one" aria-hidden="true"></div>
+          <div class="art-orbit orbit-two" aria-hidden="true"></div>
+          <div class="art-stamp"><span>GOOD<br />EVENING</span><b>SPRINGFIELD</b></div>
+          <span class="art-caption">FIG. 01 &nbsp; / &nbsp; ÍCONE LOCAL</span>
+          <span class="art-star star-one" aria-hidden="true">✳</span>
+          <span class="art-star star-two" aria-hidden="true">✳</span>
+        </div>
+        <div class="hero-bottomline"><span>UMA HOMENAGEM INTERATIVA AO UNIVERSO DE OS SIMPSONS</span><span>ARQUIVO Nº 0001 <b>●</b> ACESSÍVEL</span></div>
+      </section>
+
+      <section class="characters-section" id="personagens" aria-labelledby="characters-title">
+        <div class="page-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> CONHEÇA A VIZINHANÇA</p>
+              <h2 id="characters-title">Gente de <em>Springfield.</em></h2>
+              <p class="section-intro">Cada rosto tem um passado, um bordão e um lugar nesta cidade.</p>
+            </div>
+            <div class="live-stamp"><span class="pulse-dot" aria-hidden="true"></span><span>CONSULTA AO VIVO</span><b id="updated-at">aguardando dados</b></div>
+          </div>
+
+          <div class="catalog-tools">
+            <form class="search-form" id="search-form" role="search">
+              <label class="sr-only" for="search-input">Buscar personagens desta página</label>
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+              <input id="search-input" type="search" placeholder="Buscar nesta página por nome ou profissão..." autocomplete="off" />
+              <button type="submit" aria-label="Buscar">BUSCAR <span aria-hidden="true">↵</span></button>
+            </form>
+            <div class="status-filters" aria-label="Filtrar por status">
+              <span class="filter-label">STATUS</span>
+              <button class="filter-chip is-active" type="button" data-status="all" aria-pressed="true">Todos</button>
+              <button class="filter-chip" type="button" data-status="alive" aria-pressed="false">Vivos</button>
+              <button class="filter-chip" type="button" data-status="deceased" aria-pressed="false">Falecidos</button>
+              <button class="filter-chip" type="button" data-status="unknown" aria-pressed="false">Indefinido</button>
+            </div>
+          </div>
+
+          <div class="results-bar">
+            <p id="results-summary" aria-live="polite">Conectando ao arquivo...</p>
+            <span id="page-counter">PÁGINA — / —</span>
+          </div>
+
+          <div class="character-grid" id="character-grid" aria-live="polite" aria-busy="true"></div>
+
+          <div class="empty-state" id="empty-state" hidden>
+            <span aria-hidden="true">⌕</span>
+            <h3>Ninguém por aqui.</h3>
+            <p>Tente outro nome ou mude os filtros desta página.</p>
+            <button class="text-button" id="clear-filters" type="button">Limpar busca e filtros <span aria-hidden="true">↗</span></button>
+          </div>
+
+          <div class="error-state" id="error-state" hidden role="alert">
+            <span class="error-icon" aria-hidden="true">!</span>
+            <div><h3>O sinal caiu.</h3><p>Não foi possível conectar ao arquivo de Springfield agora.</p></div>
+            <button class="button button-dark" id="retry-button" type="button">Tentar de novo <span aria-hidden="true">↻</span></button>
+          </div>
+
+          <nav class="pagination" aria-label="Paginação de personagens">
+            <button class="page-button" id="previous-page" type="button" disabled><span aria-hidden="true">←</span> ANTERIOR</button>
+            <span class="pagination-caption">A cidade é grande. Continue explorando.</span>
+            <button class="page-button" id="next-page" type="button" disabled>PRÓXIMA <span aria-hidden="true">→</span></button>
+          </nav>
+          <p class="filter-note">Busca e status filtram os 20 personagens da página atual. Use a paginação para explorar o restante do arquivo.</p>
+        </div>
+      </section>
+
+      <section class="about-section page-shell" id="sobre" aria-labelledby="about-title">
+        <div class="about-card">
+          <div class="about-index">01 <span>/ 03</span></div>
+          <div class="about-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> POR TRÁS DO ARQUIVO</p>
+            <h2 id="about-title">Nostalgia com<br /><em>dados de verdade.</em></h2>
+            <p>Esta página consulta uma API pública e transforma a resposta em cartões de personagens no navegador. Nome, imagem, ocupação, status e bordão chegam por JavaScript — o HTML reserva apenas o espaço onde os cartões aparecem.</p>
+            <a class="text-link" href="https://thesimpsonsapi.com/" target="_blank" rel="noreferrer">Conheça a API de Os Simpsons <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="about-mark" aria-hidden="true"><span>DOH!</span><i></i></div>
+          <div class="about-foot"><span>HTML + CSS + JAVASCRIPT</span><span>FEITO PARA A WEB, COM CARINHO.</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell footer-inner">
+        <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-name">ARQUIVO<span> DE SPRINGFIELD</span></span></a>
+        <p>Projeto acadêmico de front-end.<br />Dados fornecidos pela <a href="https://thesimpsonsapi.com/" target="_blank" rel="noreferrer">The Simpsons API</a>.</p>
+        <a class="back-top" href="#inicio">VOLTAR AO TOPO <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="footer-bottom page-shell"><span>SPRINGFIELD, 2026</span><span>UM UNIVERSO DE CADA VEZ.</span></div>
+    </footer>
+  </body>
+</html>
+
